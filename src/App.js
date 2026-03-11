@@ -4,14 +4,23 @@ import Header from './components/Header'
 import List from './components/List'
 import Footer from './components/Footer'
 export default class App extends Component {
+  state = {todoList:[
+    {id:1,name:'学习react',done:true},
+    {id:2,name:'学习vue',done:false},
+    {id:3,name:'学习angular',done:true},
+  ]}
+    addTodo = (todoObj) => {
+      const {todoList} = this.state
+      this.setState({todoList:[todoObj,...todoList]})
+    }
   render() {
     return (
       <div className="todo-container">
         <div className="todo-wrap">
 
-            <Header a='1'/>
+            <Header addTodo={this.addTodo}/>
 
-            <List b='2'/>
+            <List todoList={this.state.todoList}/>
 
            <Footer/>
         </div>

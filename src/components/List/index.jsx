@@ -3,13 +3,14 @@ import './index.css'
 import Item from '../Item'
 export default class index extends Component {
   render() {
-    console.log(this.props.b)
+    const {todoList} = this.props
     return (
             <ul className="todo-main">
-                <Item/>
-                <Item/>
-                <Item/>
-                <Item/>
+                {
+                    todoList.map(item=>(
+                        <Item key={item.id} {...item}/>
+                    ))
+                }
             </ul>
     )
   }

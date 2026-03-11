@@ -9,9 +9,9 @@ export default class App extends Component {
       <div className="todo-container">
         <div className="todo-wrap">
 
-            <Header/>
+            <Header a='1'/>
 
-            <List/>
+            <List b='2'/>
 
            <Footer/>
         </div>

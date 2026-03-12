@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <button type="button" onclick="addEle()">添加一个li</button>
+    <button type="button" onclick="addEle2()">添加一个li2</button>
+    <button type="button" onclick="addEle3()">添加一个li3</button>
+    <button type="button" onclick="delEle()">删除一个li</button>
+    <ul id="myul">
+        <li id="myLi"><input type="button" value="test" /></li>
+    </ul>
+
+</body>
+
+<script>
+    function addEle() {
+        let newLi = document.createElement("li");
+        let newInput =  document.createElement("input");
+        newLi.id = "myLi";
+        newInput.type = "button";
+        newInput.value = "test";
+        newLi.appendChild(newInput);
+
+        document.getElementById("myul").appendChild(newLi);
+    }
+
+    function addEle2() {
+        let newLi = document.createElement("li");
+        let newInput =  document.createElement("input");
+        newInput.type = "button";
+        newInput.value = "test321";
+        newLi.appendChild(newInput);
+
+        document.getElementById("myul").insertBefore(newLi, document.getElementById("myLi"));
+    }
+
+    function addEle3() {
+        let newLi = document.getElementById("myLi").cloneNode(true);
+        document.getElementById("myul").appendChild(newLi);
+    }
+
+    function delEle() {
+        console.log("delEle");
+        const p = document.getElementById("myul");
+        const c = document.getElementById("myLi");
+        if(c){
+            p.removeChild(c);
+        }
+        
+    }
+
+</script>
+
+
+
+</html>

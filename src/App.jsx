@@ -3,6 +3,8 @@ import { NavLink,Routes,Route } from 'react-router-dom'
 import About from './pages/About/index.jsx'
 import Home from './pages/Home/index.jsx'
 import Header from './components/Header/index.jsx'
+import MyNavLink from './components/MyNavLink/index.jsx'
+
 export default class App extends Component {
     render() {
         return (
@@ -16,8 +18,10 @@ export default class App extends Component {
                     <div className="row">
                     <div className="col-xs-2 col-xs-offset-2">
                         <div className="list-group">                            
-                            <NavLink className={({isActive}) => isActive ? 'list-group-item active' : 'list-group-item'} to="/about">About</NavLink>
-                            <NavLink className={({isActive}) => isActive ? 'list-group-item active' : 'list-group-item'} to="/home">Home</NavLink>
+                            {/* <NavLink className={({isActive}) => isActive ? 'list-group-item active' : 'list-group-item'} to="/about">About</NavLink>
+                            <NavLink className={({isActive}) => isActive ? 'list-group-item active' : 'list-group-item'} to="/home">Home</NavLink> */}
+                            <MyNavLink to="/about">About</MyNavLink>
+                            <MyNavLink to="/home">Home</MyNavLink>
                         </div>
                     </div>
                     <div className="col-xs-6">

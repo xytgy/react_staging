@@ -1,9 +1,8 @@
 import { Component } from "react";
-import { Routes,Route } from 'react-router-dom' 
+import { Routes,Route,Navigate } from 'react-router-dom' 
 import About from './pages/About/index.jsx'
 import Home from './pages/Home/index.jsx'
 import Header from './components/Header/index.jsx'
-import Test from './pages/Test/index.jsx'
 import MyNavLink from './components/MyNavLink/index.jsx'
 
 export default class App extends Component {
@@ -18,11 +17,9 @@ export default class App extends Component {
                     </div>
                     <div className="row">
                     <div className="col-xs-2 col-xs-offset-2">
-                        <div className="list-group">                            
-                            {/* <NavLink className={({isActive}) => isActive ? 'list-group-item active' : 'list-group-item'} to="/about">About</NavLink>
-                            <NavLink className={({isActive}) => isActive ? 'list-group-item active' : 'list-group-item'} to="/home">Home</NavLink> */}
-                            <MyNavLink to="/about">About</MyNavLink>
-                            <MyNavLink to="/home">Home</MyNavLink>
+                        <div className="list-group">                  
+                            <MyNavLink to="/about/">About</MyNavLink>
+                            <MyNavLink to="/home/">Home</MyNavLink>
                         </div>
                     </div>
                     <div className="col-xs-6">
@@ -30,9 +27,10 @@ export default class App extends Component {
                         <div className="panel-body">
                             <h3>路由组件</h3>
                             <Routes>
-                                <Route path = '/about' element= {<About/>} />
-                                <Route path = '/home' element= {<Home/>} />
-                                <Route path = '/home' element= {<Test/>} />
+                                <Route path = '/about' element={<About/>} />
+                                <Route path = '/home/*' element={<Home/>} />
+                                <Route path="*" element={<Navigate to="/about" />} />
+                               
                             </Routes>
                         </div>
                         </div>
